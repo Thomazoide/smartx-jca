@@ -1,9 +1,10 @@
 import express from "express";
 import morgan from "morgan";
 import cors from 'cors';
+import 'reflect-metadata'
 
 const app = express();
-const port = 3030
+const port = process.env["SV_PORT"]
 
 app.use(morgan('dev'))
 app.use(cors())
