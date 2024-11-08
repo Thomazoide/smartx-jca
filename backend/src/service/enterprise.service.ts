@@ -4,7 +4,7 @@ import { Enterprise } from "../models/enterprise.entity";
 
 const repository: Repository<Enterprise> = bbdd.getRepository(Enterprise)
 
-export const EnterpriseRepository = {
+export const EnterpriseService = {
     GetAllEnterprises: async function(): Promise<Enterprise[]> {
         return await repository.find()
     },
@@ -23,5 +23,12 @@ export const EnterpriseRepository = {
             throw new Error("Empresa probablemente no registrada...")
         }
         return await repository.save(enterprise)
+    },
+    DeleteEnterprise: async function(enterprise: Partial<Enterprise>): Promise<string> {
+        if(!enterprise.id) {
+            throw new Error("Empresa no existente...")
+        }
+        await repository.delete({id: enterprise.id})
+        return "Empresa borrada..."
     }
 }

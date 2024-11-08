@@ -7,9 +7,13 @@ export class Employee {
     id!: number
     @Column()
     name!: string
-    @Column()
+    @Column({
+        unique: true
+    })
     email!: string
-    @Column()
+    @Column({
+        unique: true
+    })
     rut!: string
     @Column()
     enterpriseId!: number
