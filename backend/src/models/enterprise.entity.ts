@@ -8,7 +8,7 @@ export class Enterprise {
     @Column()
     name!: string
     @Column()
-    iconURL: string | undefined
+    iconURL!: string
     @OneToMany( () => Employee, (employee) => employee.enterprise )
     employees!: Employee[]
 }

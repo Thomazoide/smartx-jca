@@ -8,7 +8,7 @@ export class Employee {
     @Column()
     name!: string
     @Column()
-    email: string | undefined
+    email!: string
     @Column()
     rut!: string
     @Column()
