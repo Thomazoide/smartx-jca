@@ -3,16 +3,21 @@ import morgan from "morgan";
 import cors from 'cors';
 import 'reflect-metadata'
 import { bbdd } from "./config/dataSource";
+import { userRouter } from "./routes/user.routes";
+import { enterpriseRouter } from "./routes/enterprise.routes";
+import { employeeRouter } from "./routes/employee.routes";
+import 'dotenv/config'
 
 const app = express();
 const port = process.env["SV_PORT"]
 
 app.use(morgan('dev'))
 app.use(cors())
+app.use(express.json())
 
-app.get("/", (_req, res) => {
-    res.send("Hello world!")
-})
+app.use('/api/users', userRouter)
+app.use('/api/enterprises', enterpriseRouter)
+app.use('/api/employees', employeeRouter)
 
 bbdd.initialize()
     .then( () => {

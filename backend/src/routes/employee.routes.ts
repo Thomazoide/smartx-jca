@@ -3,7 +3,7 @@ import { EmployeeController } from "../controller/employee.controller";
 
 const { getAllEmployees, getAllAdminEmployees, getAllNormalEmployees, getEmployeeById, getEmployeeByEmail, getEmployeeByRut, createEmployee, updateEmployee, deleteEmployee } = EmployeeController
 
-const employeeRouter = Router()
+export const employeeRouter = Router()
 
 employeeRouter.route("/")
     .get(getAllEmployees)

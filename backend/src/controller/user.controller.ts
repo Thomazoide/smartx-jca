@@ -42,6 +42,7 @@ export const UserController = {
     },
     createUser: async (request: Request<any, any, crudEntityRequest<User>>, response: Response<defaultPayload<User>>) => {
         try{
+            console.log("BODY: ", request.body)
             const newUserReq: Partial<User> = request.body.entity
             const newUser: User = await CreateUser(newUserReq)
             response.json({
