@@ -8,3 +8,5 @@ build
 /.env
 ./backend/.env
 /backend/.env
+dist
+/dist
