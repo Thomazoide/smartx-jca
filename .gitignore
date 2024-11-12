@@ -6,3 +6,5 @@ build
 ./build
 .env
 /.env
+./backend/.env
+/backend/.env
